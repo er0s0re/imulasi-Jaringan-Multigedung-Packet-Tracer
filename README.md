@@ -19,6 +19,29 @@ Jaringan ini memiliki beberapa fitur utama yang telah dikonfigurasi, antara lain
 
 ---
 
+## Spesifikasi Perangkat & Topologi Fisik
+
+Berikut adalah detail perangkat keras, jenis kabel, dan port yang digunakan dalam simulasi ini.
+
+### Daftar Perangkat Keras
+* **Router Cisco 2911**: 3 buah (`Router_Admin`, `Router_A`, `Router_B`)
+* **Access Point-PT**: 2 buah (`AccessPoint_A`, `AccessPoint_B`)
+* **PC-PT**: 1 buah (`PC_Admin`)
+* **Laptop-PT**: 1 buah (Sebagai klien untuk pengujian)
+
+### Detail Pengkabelan & Port
+
+| Perangkat Sumber | Port Sumber         | Jenis Kabel           | Perangkat Tujuan  | Port Tujuan         | Keterangan          |
+| :--------------- | :------------------ | :-------------------- | :---------------- | :------------------ | :------------------ |
+| `PC_Admin`       | RS 232              | **Console (Biru)**    | `Router_Admin`    | Console             | Manajemen Awal      |
+| `Router_Admin`   | GigabitEthernet0/1  | **Cross-Over**        | `Router_A`        | GigabitEthernet0/1  | Koneksi ke Gedung A |
+| `Router_Admin`   | GigabitEthernet0/2  | **Cross-Over**        | `Router_B`        | GigabitEthernet0/2  | Koneksi ke Gedung B |
+| `Router_A`       | GigabitEthernet0/0  | **Straight-Through**  | `AccessPoint_A`   | Port 0              | Jaringan Wi-Fi A    |
+| `Router_B`       | GigabitEthernet0/0  | **Straight-Through**  | `AccessPoint_B`   | Port 0              | Jaringan Wi-Fi B    |
+
+
+---
+
 ## Detail Konfigurasi
 
 * **Skema IP Address:**
@@ -28,7 +51,7 @@ Jaringan ini memiliki beberapa fitur utama yang telah dikonfigurasi, antara lain
     * Jaringan Internal Gedung B (WLAN): `20.20.20.0/24`
 * **Kredensial Wi-Fi:**
     * **WIFI_GEDUNG_A:** `gedungA123`
-    * **WIFI_GEDUNG_B:** `gedungB456`
+    * **WIFI_GEDUNG_B:** `gedungB123`
 
 ---
 
